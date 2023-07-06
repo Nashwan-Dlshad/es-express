@@ -1,0 +1,11 @@
+{
+  "name": "kexpress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "kexpress": "node kexpress.js"
+  },
+  "dependencies": {
+    "commander": "^11.0.0"
+  }
+}
