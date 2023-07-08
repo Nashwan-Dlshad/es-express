@@ -109,7 +109,7 @@ Required Constraint: Specifies that this field must have a value present in orde
 Type: Boolean
 Default Value: If no value is provided for this field during document creation, it will default to "false".
 
-    ```javascript
+```javascript
 schema = {
 id: {
     type: Number,
