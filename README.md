@@ -69,10 +69,7 @@ To install the "es-express" package, run the following command in your terminal:
     npm run es-express create route user
     ```
 
-<!-- controller usage -->
-
 ## Controller Usage
-
     ```javascript
 const Queries = require("es-express/db/mongoose/queries");
 // require your models
@@ -117,7 +114,6 @@ forceDelete: Usercontroller.forceDelete.bind(Usercontroller),
 module.exports = exportedFunctions;
 ```
 
-<!-- model usage -->
 
 ## Model Usage
 
