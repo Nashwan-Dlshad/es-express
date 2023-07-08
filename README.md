@@ -232,6 +232,7 @@ Importing Middleware:
 
 The code imports a middleware function named runMiddleware from the ./middlewares/runMiddleware file.
 This assumes that there is a separate file runMiddleware.js in the middlewares directory that exports the middleware function.
+
 Web Middlewares:
 
 The WebMiddlewares array is created to store middleware functions that will be applied to the web application.
