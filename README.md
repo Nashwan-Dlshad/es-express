@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- information about this package -->
 
 # Package: [es-express]

@@ -12,7 +12,7 @@
   "main": "e-express.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nashwan-Dlshad/e-express"
+    "url": "https://github.com/Nashwan-Dlshad/es-express"
   },
   "keywords": [
     "expressjs"
@@ -20,7 +20,7 @@
   "author": "Nashwan Dlshad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nashwan-Dlshad/kexpress/issues"
+    "url": "https://github.com/Nashwan-Dlshad/es-express/issues"
   },
-  "homepage": "https://github.com/Nashwan-Dlshad/kexpress#readme"
+  "homepage": "https://github.com/Nashwan-Dlshad/es-express#readme"
 }
