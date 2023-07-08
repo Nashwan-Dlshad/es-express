@@ -1,9 +1,9 @@
 {
   "name": "es-express-test",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "es-express": "node es-express.js",
-  "postinstall": "node postinstall.js"
+    "postinstall": "node postinstall.js"
   },
   "dependencies": {
     "commander": "^11.0.0"
