@@ -143,8 +143,7 @@ isDeleted:{
         }
     }
 ```
-
-    In this example, a new field named "name" is added to the schema. It has a type of String and is marked as required, meaning it must have a value present for a document to be considered valid.
+In this example, a new field named "name" is added to the schema. It has a type of String and is marked as required, meaning it must have a value present for a document to be considered valid.
 
 Regarding the "isDeleted" field, it seems to be used for soft deletion. Soft deletion is a technique where instead of physically removing a record from the database, a flag or field, such as "isDeleted", is set to indicate that the record is logically deleted. This approach allows for potential recovery or restoration of deleted data in the future if needed.
 
