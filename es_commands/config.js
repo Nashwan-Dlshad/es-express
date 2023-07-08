@@ -151,30 +151,30 @@ module.exports = runMiddleware
 
    }
 }
-const createKexpressDB = ()=>{
-    const kexpressdb = `const mongoose = require('mongoose')
+const createEsexpressDB = ()=>{
+    const Esexpressdb = `const mongoose = require('mongoose')
 require('dotenv').config()
-const connection = mongoose.connect(process.env.KEXPRESS_DB_URL, {useNewUrlParser: true,useUnifiedTopology: true})
+const connection = mongoose.connect(process.env.ESEXPRESS_DB_URL, {useNewUrlParser: true,useUnifiedTopology: true})
 const db = mongoose.connection
 // test
 db.on('error', ()=> console.log('connection error'))
 db.once('open', ()=> console.log('Connected to MongoDB')
 )
 module.exports = connection`;
-    // check if kexpressDB exists
-    fs.access("kexpressDB.js", fs.constants.F_OK, (err) => {
+    // check if EsexpressDB exists
+    fs.access("EsexpressDB.js", fs.constants.F_OK, (err) => {
         if (err) {
-          // kexpressDB does not exist, so create it
-          fs.writeFile("kexpressDB.js", kexpressdb, (err) => {
+          // EsexpressDB does not exist, so create it
+          fs.writeFile("EsexpressDB.js", Esexpressdb, (err) => {
             if (err) {
               console.error(err);
             } else {
-              console.log("kexpressDB.js file has been created successfully.");
+              console.log("EsexpressDB.js file has been created successfully.");
             }
           });
         } else {
-          // kexpressDB exists
-          console.log("kexpressDB.js file already exists");
+          // EsexpressDB exists
+          console.log("EsexpressDB.js file already exists");
         }
         });
 }
@@ -333,11 +333,11 @@ execSync('npm install dotenv')
 execSync('npm install body-parser')
   // npm install mongoose
   execSync('npm install mongoose')
-    const envContent = `# kexpress variable
-KEXPRESS_DB_URL=
+    const envContent = `# Esexpress mongodb
+ESEXPRESS_DB_URL=
 `;
-    // create kexpressDB
-    createKexpressDB()
+    // create EsexpressDB
+    createEsexpressDB()
     // create routes folder
     createRoutesFolder()
     // create models folder

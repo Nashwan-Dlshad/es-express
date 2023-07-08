@@ -6,7 +6,7 @@ const createController = (name) => {
   // check for controller name
   if (utils.checkFile("app/controllers/" + name+"Controller.js") == false) {
     // create controller file
-    const controllerContent = `const Queries = require("e-express/db/mongoose/queries");
+    const controllerContent = `const Queries = require("es-express/db/mongoose/queries");
 class UserController extends Queries {
   constructor() {
 // Initialize queries
@@ -37,7 +37,7 @@ const exportedFunctions = {
   index: ${name}controller.index.bind(${name}controller),
   show: ${name}controller.show.bind(${name}controller),
   store: ${name}controller.store.bind(${name}controller),
-  update: ${name}controller.update.bind${name}controller),
+  update: ${name}controller.update.bind(${name}controller),
   destroy: ${name}controller.destroy.bind(${name}controller),
   forceDelete: ${name}controller.forceDelete.bind(${name}controller),
 };
@@ -209,7 +209,7 @@ const createServer = (port, host) => {
   }
   const serverContent = `// requires
       const express = require("express");
-const db = require("./kexpressDb");
+const db = require("./es-expressDb");
 const bodyParser = require("body-parser");
 const app = express();
 //include routes
@@ -245,16 +245,16 @@ console.log('App is listening at http://${host}:${port}');
       if (err) {
         return console.log(err);
       } else {
-        // add kexpress:nodemon server.js
+        // add es-express:nodemon server.js
         let packageJson = JSON.parse(data);
-        packageJson.scripts["kexpress-serve"] = "nodemon server.js";
+        packageJson.scripts["es-express:serve"] = "nodemon server.js";
         fs.writeFile(
           "package.json",
           JSON.stringify(packageJson),
           function (err) {
             if (err) return console.log(err);
             // beautify package.json
-            console.log("kexpress script added to package.json");
+            console.log("es-express script added to package.json");
           }
         );
 

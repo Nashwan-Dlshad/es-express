@@ -1,6 +1,6 @@
 const { program } = require("commander");
-const kconfig = require("./e_commands/config")
-const createCommands = require('./e_commands/create_commands')
+const kconfig = require("./es_commands/config")
+const createCommands = require('./es_commands/create_commands')
 
 
 program
