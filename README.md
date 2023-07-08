@@ -110,7 +110,6 @@ Type: Boolean
 Default Value: If no value is provided for this field during document creation, it will default to "false".
 
     ```javascript
-
 schema = {
 id: {
     type: Number,
@@ -123,7 +122,6 @@ isDeleted:{
     default:false
 }
 }
-
 ```
 
    To add more fields to the schema, you can simply include them within the "schema" object, following the same pattern as the existing fields. For example, let's say you want to add a "name" field:
