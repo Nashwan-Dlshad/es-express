@@ -1,6 +1,6 @@
 {
   "name": "es-expressjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "es-express": "node es-express.js",
     "postinstall": "node postinstall.js"

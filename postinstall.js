@@ -8,7 +8,7 @@ const rootPackageJson = require(rootPackageJsonPath);
 if (!rootPackageJson.scripts) {
   rootPackageJson.scripts = {};
 }
-rootPackageJson.scripts['es-express'] = 'node ./node_modules/es-express/es-express.js';
+rootPackageJson.scripts['es-express'] = 'node ./node_modules/es-expressjs/es-express.js';
 
 // Write the updated package.json file
 fs.writeFileSync(rootPackageJsonPath, JSON.stringify(rootPackageJson, null, 2));
