@@ -234,12 +234,11 @@ The code imports a middleware function named runMiddleware from the ./middleware
 This assumes that there is a separate file runMiddleware.js in the middlewares directory that exports the middleware function.
 
 Web Middlewares:
-
 The WebMiddlewares array is created to store middleware functions that will be applied to the web application.
 In this example, the runMiddleware function is added to the WebMiddlewares array.
 Additional middleware functions can be added to this array if needed for the web application.
-API Middlewares:
 
+API Middlewares:
 The ApiMiddlwares object is created to store middleware functions that will be applied to the API.
 Currently, the object is empty, indicating that no middleware functions are defined specifically for the API.
 Middleware functions can be added to the ApiMiddlwares object if required for the API functionality.
