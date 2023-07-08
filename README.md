@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 <!-- information about this package -->
 
-# Package: [e-express]
+# Package: [es-express]
 
 <!-- description nearly to laravel framework about e-express -->
 
