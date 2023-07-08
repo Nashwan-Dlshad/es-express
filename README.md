@@ -29,26 +29,13 @@ The "es-express" package aims to provide a comprehensive toolkit for Express.js 
 ## Installation
 
 To install the "es-express" package, run the following command in your terminal:
-
-```bash
-npm install es-express
-```
-
-<!-- add command to package.json -->
-
-## Usage
-
-To use the "es-express" package, you must first add this script into package.json
-
-    ```bash
+`bash
     npm init
-    ```
+    `
 
     ```bash
     npm i es-express
     ```
-
-<!-- run this command to prepare environment -->
 
 ## Prepare Environment
 
@@ -63,17 +50,9 @@ To use the "es-express" package, you must first add this script into package.jso
 ## Create Server
 
     ```bash
+    #default port=3000 host=localhost
     npm run es-express create-server [port] [host]
     ```
-
- <!-- 
- by default
-    port = 3000
-    host = localhost
- -->
-
-<!-- run this command to create route
-    -->
 
 <!-- create command types:
     - route
@@ -86,6 +65,7 @@ To use the "es-express" package, you must first add this script into package.jso
 
     ```bash
     #npm run es-express create <type> <name>
+    #type:route, controller, model, middleware
 
     # example
     npm run es-express create route user
@@ -96,22 +76,48 @@ To use the "es-express" package, you must first add this script into package.jso
 ## Controller Usage
 
     ```javascript
-    const Queries = require("es-express-test/db/mongoose/queries");
-    // require your models
-     require("../../models/user");
+const Queries = require("es-express/db/mongoose/queries");
+// require your models
+require("../../models/User");
 
-    class UserController extends Controller {
-        constructor() {
-            super();
-        }
+class UserController extends Queries {
+constructor() {
+// Initialize queries
+super();
+}
 
-        async index(req, res) {
-            const users = await (await (await this.model("Users").findId(2)).with(["rel1"])).get()
-        }
-    }
+async index(req, res) {
+    const users = await (await (await this.model("Users").findId(2)).with(["rel1"])).get()
+}
 
-    module.exports = UserController;
-    ```
+async show(req, res) {
+}
+
+async store(req, res) {
+}
+
+async update(req, res) {
+}
+
+async destroy(req, res) {
+}
+
+async forceDelete(req, res) {
+}
+}
+
+const Usercontroller = new UserController();
+const exportedFunctions = {
+  index: Usercontroller.index.bind(Usercontroller),
+show: Usercontroller.show.bind(Usercontroller),
+store: Usercontroller.store.bind(Usercontroller),
+update: Usercontroller.update.bind(Usercontroller),
+destroy: Usercontroller.destroy.bind(Usercontroller),
+forceDelete: Usercontroller.forceDelete.bind(Usercontroller),
+};
+
+module.exports = exportedFunctions;
+```
 
 <!-- model usage -->
 
@@ -130,22 +136,23 @@ Type: Boolean
 Default Value: If no value is provided for this field during document creation, it will default to "false".
 
     ```javascript
+
 schema = {
 id: {
-type: Number,
-unique: true,
-required: true,
+    type: Number,
+    unique: true,
+    required: true,
 },
 
-    isDeleted:{
-      type:Boolean,
-      default:false
-    }
-
+isDeleted:{
+    type:Boolean,
+    default:false
 }
+}
+
 ```
 
-    To add more fields to the schema, you can simply include them within the "schema" object, following the same pattern as the existing fields. For example, let's say you want to add a "name" field:
+   To add more fields to the schema, you can simply include them within the "schema" object, following the same pattern as the existing fields. For example, let's say you want to add a "name" field:
 
     ```javascript
     #schema = {
@@ -172,7 +179,7 @@ Regarding the "isDeleted" field, it seems to be used for soft deletion. Soft del
 <!-- route usage -->
 
 ## Route Usage
-The provided code defines a route that handles HTTP requests for the root endpoint ("/") of the application. 
+The provided code defines a route that handles HTTP requests for the root endpoint ("/") of the application.
 
 ```javascript
 const UserController = require('../app/controllers/UserController')
@@ -209,18 +216,18 @@ The code defines separate request handlers for POST, PUT, and DELETE requests us
 For each handler, a response with the string "Hello World" is sent back to the client.
 In summary, this route handles various types of requests to the root endpoint ("/") of the application. The GET request is delegated to the index method of the UserController, which likely performs user-related operations and generates a response. The POST, PUT, and DELETE requests all respond with the string "Hello World" to the client.
 
-<!-- middleware usage -->
 
-## Middleware Usage
+##Middleware Usage
+
+The provided code exports a middleware function named runMiddleware. Here's a description of its functionality
+
 ```javascript
-const runMiddleware = (req, res, next)=>{
-  console.log('middlware running...')
-    next()
-}
-module.exports = runMiddleware
+const runMiddleware = (req, res, next) => {
+  console.log("middlware running...");
+  next();
+};
+module.exports = runMiddleware;
 ```
-
-The provided code exports a middleware function named runMiddleware. Here's a description of its functionality:
 
 Middleware Function:
 
@@ -236,23 +243,20 @@ This allows other parts of the application to import and use this middleware fun
 <!-- kernel.js -->
 
 ## Kernel.js
+
 The provided code exports a middleware function named runMiddleware.
+
 ```javascript
 // require your middlware files
-const runMiddleware = require('./middlewares/runMiddleware')
-    
+const runMiddleware = require("./middlewares/runMiddleware");
+
 // middlwares for web
-const WebMiddlewares = [
-    runMiddleware
+const WebMiddlewares = [runMiddleware];
 
-]
-
-    
 // middlwares for API
-const ApiMiddlwares = {
-    
-}
+const ApiMiddlwares = {};
 ```
+
 Importing Middleware:
 
 The code imports a middleware function named runMiddleware from the ./middlewares/runMiddleware file.
@@ -271,12 +275,11 @@ Overall, this code demonstrates the organization of middlewares for a web applic
 
 To use the middleware functions, they need to be registered with the appropriate middleware handler or router in your application. The exact implementation will depend on the framework or library you are using for your web application or API.
 
-
-
 ## Contact
+
 If you have any questions, suggestions, or feedback regarding this project, feel free to reach out to me.
 
-Email: nashwan.dlshad@gmail.com 
+Email: nashwan.dlshad@gmail.com
 
 LinkedIn: linkedin.com/in/nashwan-dlshad-745a8a211
 
@@ -285,4 +288,5 @@ GitHub: https://github.com/Nashwan-Dlshad
 Please don't hesitate to contact me if you need any assistance or have any inquiries related to this project. I am always happy to connect with developers and discuss ideas or collaborate on new projects.
 
 ## Thank you
+
 Thank you once again for choosing our package. We are excited to be a part of your development journey, and we look forward to seeing the innovative applications you create.
