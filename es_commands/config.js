@@ -162,19 +162,19 @@ db.once('open', ()=> console.log('Connected to MongoDB')
 )
 module.exports = connection`;
     // check if EsexpressDB exists
-    fs.access("EsexpressDB.js", fs.constants.F_OK, (err) => {
+    fs.access("es-expressDB.js", fs.constants.F_OK, (err) => {
         if (err) {
           // EsexpressDB does not exist, so create it
-          fs.writeFile("EsexpressDB.js", Esexpressdb, (err) => {
+          fs.writeFile("es-expressDB.js", Esexpressdb, (err) => {
             if (err) {
               console.error(err);
             } else {
-              console.log("EsexpressDB.js file has been created successfully.");
+              console.log("es-expressDB.js file has been created successfully.");
             }
           });
         } else {
           // EsexpressDB exists
-          console.log("EsexpressDB.js file already exists");
+          console.log("es-expressDB.js file already exists");
         }
         });
 }
