@@ -45,19 +45,18 @@ To install the "es-express" package, run the following command in your terminal:
 
  -->
 
-## Create Server
+## Server
 
     ```bash
     #default port=3000 host=localhost
     npm run es-express create-server [port] [host]
     ```
 
-<!-- create command types:
-    - route
-    - middleware
-    - controller
-    - model
- -->
+    ```bash
+    #start server
+    npm run es-express:serve
+    ```
+
 
 ## Create files
 
