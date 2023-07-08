@@ -1,6 +1,6 @@
 {
   "name": "e-express",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "kexpress": "node kexpress.js"
   },
