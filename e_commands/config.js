@@ -4,7 +4,7 @@ const utils = require('./utils')
 
 const createAppFolder = ()=>{
     const kernelContent = `// require your middlware files
-//const runMiddleware = require('./middlewares/runMiddleware')
+const runMiddleware = require('./middlewares/runMiddleware')
     
 // middlwares for web
 const WebMiddlewares = [
@@ -13,9 +13,9 @@ const WebMiddlewares = [
 ]
 
     
-// middlwares for web
+// middlwares for Api
 const ApiMiddlwares = {
-    
+  runMiddleware
 }
     
     
@@ -244,7 +244,7 @@ module.exports = router;
   });
 }
 const createModelsFolder = ()=>{
-  const modelContent = `const mongoose = require("mongoose");
+  const UserModel = `const mongoose = require("mongoose");
   const Schema = mongoose.Schema;
   class UserModel {
   // protected variables

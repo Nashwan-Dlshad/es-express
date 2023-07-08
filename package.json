@@ -1,8 +1,8 @@
 {
-  "name": "e-express",
-  "version": "1.0.1",
+  "name": "es-express-test",
+  "version": "1.0.0",
   "scripts": {
-    "kexpress": "node kexpress.js"
+    "kexpress": "node e-express.js"
   },
   "dependencies": {
     "commander": "^11.0.0"
@@ -11,7 +11,7 @@
   "main": "kexpress.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nashwan-Dlshad/kexpress.git"
+    "url": "https://github.com/Nashwan-Dlshad/e-express"
   },
   "keywords": [
     "expressjs"

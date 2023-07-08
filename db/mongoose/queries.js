@@ -244,7 +244,9 @@ class Queries {
   async create(data) {
     // create
     this.#result = await mongoose.models[this.#model].create(data);
-    return this;
+    // save
+    await this.#result.save();
+    return this.#result;
   }
 
   //update
@@ -252,11 +254,11 @@ class Queries {
     // update
     this.#result = await mongoose.models[this.#model].updateOne(
       {
-        _id: id,
+        _id: _id,
       },
       data
     );
-    return this;
+    return this.#result
   }
 
   // softDelete

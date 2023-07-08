@@ -1,10 +1,10 @@
 const { program } = require("commander");
-const kconfig = require("./kexpress_commands/config")
-const createCommands = require('./kexpress_commands/create_commands')
+const kconfig = require("./e_commands/config")
+const createCommands = require('./e_commands/create_commands')
 
 
 program
-  .command("kexpress-config [views]")
+  .command("config [views]")
   .description("kexpress package configuration")
   .action(() => {
       kconfig.createEnv()

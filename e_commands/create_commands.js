@@ -4,12 +4,16 @@ const utils = require("./utils");
 
 const createController = (name) => {
   // check for controller name
-  if (utils.checkFile("app/controller/" + name) == false) {
+  if (utils.checkFile("app/controllers/" + name+"Controller.js") == false) {
     // create controller file
-    const controllerContent = `const Queries = require("../../db/mongoose/queries");
-class ${name}Controller extends Queries {
-  async index(req, res) {
+    const controllerContent = `const Queries = require("e-express/db/mongoose/queries");
+class UserController extends Queries {
+  constructor() {
+// Initialize queries
+super();
+  }
 
+  async index(req, res) {
   }
 
   async show(req, res) {
@@ -28,21 +32,31 @@ class ${name}Controller extends Queries {
   }
 }
 
-module.exports = ${name}Controller;
+const ${name}controller = new ${name}Controller();
+const exportedFunctions = {
+  index: ${name}controller.index.bind(${name}controller),
+  show: ${name}controller.show.bind(${name}controller),
+  store: ${name}controller.store.bind(${name}controller),
+  update: ${name}controller.update.bind${name}controller),
+  destroy: ${name}controller.destroy.bind(${name}controller),
+  forceDelete: ${name}controller.forceDelete.bind(${name}controller),
+};
+
+module.exports = exportedFunctions;
 `;
     fs.writeFile(
-      "app/controllers/" + name+"Controller"+ ".js",
+      "app/controllers/" + name+"Controller.js",
       controllerContent,
       (err) => {
         if (err) {
           console.error(err);
         } else {
-          console.log(`${name + ".js"} file has been created successfully.`);
+          console.log(`${name + "Controller.js"} file has been created successfully.`);
         }
       }
     );
   } else {
-    console.log(`${name + ".js"} file already exists`);
+    console.log(`${name + "Controller.js"} file already exists`);
   }
 };
 
