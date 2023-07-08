@@ -4,11 +4,11 @@ const utils = require('./utils')
 
 const createAppFolder = ()=>{
     const kernelContent = `// require your middlware files
-//const variableName = require('./middlewares/middlware_file_name')
+//const runMiddleware = require('./middlewares/runMiddleware')
     
 // middlwares for web
 const WebMiddlewares = [
-    //variableName.function,
+    runMiddleware
 
 ]
 
@@ -23,6 +23,14 @@ module.exports = {
 WebMiddlewares,
 ApiMiddlwares
 }`
+
+const RunMiddleware = `// do not delete this middlware
+const runMiddleware = (req, res, next)=>{
+  console.log('middlware running...')
+    next()
+}
+module.exports = runMiddleware
+`
    if(utils.checkFolder('app')==false){
     fs.mkdir('app', { recursive: true }, (err) => {
         if (err) {
@@ -45,7 +53,18 @@ ApiMiddlwares
                     if (err) {
                       console.error(err);
                     } else {
-                      console.log("middlewares folder has been created successfully.");
+                      // check for runMiddleware file
+                      if(utils.checkFile('app/middlewares/runMiddleware.js')==false){
+                        // create runMiddleware.js
+                        fs.writeFile("app/middlewares/runMiddleware.js", RunMiddleware, (err) => {
+                            if (err) {
+                              console.error(err);
+                            } else {
+                              console.log("runMiddleware.js file has been created successfully.");
+                            }
+                          }
+                        );
+                      }
                     }
                   });
                }
@@ -63,7 +82,18 @@ ApiMiddlwares
                 if (err) {
                   console.error(err);
                 } else {
-                  console.log("middlewares folder has been created successfully.");
+                  // check for runMiddleware file
+                  if(utils.checkFile('app/middlewares/runMiddleware.js')==false){
+                    // create runMiddleware.js
+                    fs.writeFile("app/middlewares/runMiddleware.js", RunMiddleware, (err) => {
+                        if (err) {
+                          console.error(err);
+                        } else {
+                          console.log("runMiddleware.js file has been created successfully.");
+                        }
+                      }
+                    );
+                  }
                 }
               });
             }
@@ -214,10 +244,12 @@ module.exports = router;
   });
 }
 const createModelsFolder = ()=>{
-    const UserModel = `const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-// Users schema
-let userSchema = new Schema({
+  const modelContent = `const mongoose = require("mongoose");
+  const Schema = mongoose.Schema;
+  class UserModel {
+  // protected variables
+  #document = "User";
+  #schema = {
   id: {
     type: Number,
     unique: true,
@@ -227,34 +259,30 @@ let userSchema = new Schema({
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-    unique: true,
-    lowercase: true,
+  rel1:{
+    type:Schema.Types.ObjectId,
+    ref:'test1',
+    default:null
   },
-  email: {
-    type: String,
-    unique: true,
-    lowercase: true,
-    trim: true,
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
-  },
-  password: {
-    type: String,
-    minlength: [8, "Password must be at least 8 characters long"],
-  },
- 
-
-    // if you want to use soft delete uncomment below code
-//   isDeleted:{
-//     type:Boolean,
-//     default:false
-//   }
-});
-const Users = mongoose.models.Users || mongoose.model("Users", userSchema);
-
-module.exports = Users;
-`;
+  isDeleted:{
+    type:Boolean,
+    default:false
+  }
+    }
+    // constructor
+    constructor() {
+  // create mongoose schema
+  this.schema = new Schema(this.#schema);
+  // create mongoose model
+  this.model = mongoose.model(this.#document, this.schema);
+    }
+  }
+      
+      
+  // export model
+  module.exports = new UserModel()
+  
+  `;
 
 // create models folder with User.js model
 fs.access("models", fs.constants.F_OK, (err) => {

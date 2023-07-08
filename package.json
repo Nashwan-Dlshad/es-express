@@ -1,11 +1,31 @@
 {
   "name": "kexpress",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "kexpress": "node kexpress.js"
+    "kexpress": "node kexpress.js",
+    "kexpress-serve": "nodemon server.js"
   },
   "dependencies": {
-    "commander": "^11.0.0"
-  }
+    "body-parser": "^1.20.2",
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.2",
+    "nodemon": "^2.0.22"
+  },
+  "description": "a package to genrate express project",
+  "main": "kexpress.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nashwan-Dlshad/kexpress.git"
+  },
+  "keywords": [
+    "expressjs"
+  ],
+  "author": "Nashwan Dlshad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nashwan-Dlshad/kexpress/issues"
+  },
+  "homepage": "https://github.com/Nashwan-Dlshad/kexpress#readme"
 }
