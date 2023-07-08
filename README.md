@@ -126,7 +126,7 @@ isDeleted:{
 
    To add more fields to the schema, you can simply include them within the "schema" object, following the same pattern as the existing fields. For example, let's say you want to add a "name" field:
 
-    ```javascript
+```javascript
     #schema = {
         id: {
             type: Number,
@@ -142,7 +142,7 @@ isDeleted:{
             required:true
         }
     }
-    ```
+```
 
     In this example, a new field named "name" is added to the schema. It has a type of String and is marked as required, meaning it must have a value present for a document to be considered valid.
 
