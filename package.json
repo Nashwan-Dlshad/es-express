@@ -2,13 +2,13 @@
   "name": "es-express-test",
   "version": "1.0.0",
   "scripts": {
-    "kexpress": "node e-express.js"
+    "e-express": "node e-express.js"
   },
   "dependencies": {
     "commander": "^11.0.0"
   },
   "description": "a package to genrate express project",
-  "main": "kexpress.js",
+  "main": "e-express.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Nashwan-Dlshad/e-express"

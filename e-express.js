@@ -5,7 +5,7 @@ const createCommands = require('./e_commands/create_commands')
 
 program
   .command("config [views]")
-  .description("kexpress package configuration")
+  .description("e-express package configuration")
   .action(() => {
       kconfig.createEnv()
   });
