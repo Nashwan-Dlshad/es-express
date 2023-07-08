@@ -70,7 +70,7 @@ To install the "es-express" package, run the following command in your terminal:
     ```
 
 ## Controller Usage
-    ```javascript
+```javascript 
 const Queries = require("es-express/db/mongoose/queries");
 // require your models
 require("../../models/User");
@@ -84,31 +84,11 @@ super();
 async index(req, res) {
     const users = await (await (await this.model("Users").findId(2)).with(["rel1"])).get()
 }
-
-async show(req, res) {
-}
-
-async store(req, res) {
-}
-
-async update(req, res) {
-}
-
-async destroy(req, res) {
-}
-
-async forceDelete(req, res) {
-}
 }
 
 const Usercontroller = new UserController();
 const exportedFunctions = {
   index: Usercontroller.index.bind(Usercontroller),
-show: Usercontroller.show.bind(Usercontroller),
-store: Usercontroller.store.bind(Usercontroller),
-update: Usercontroller.update.bind(Usercontroller),
-destroy: Usercontroller.destroy.bind(Usercontroller),
-forceDelete: Usercontroller.forceDelete.bind(Usercontroller),
 };
 
 module.exports = exportedFunctions;
