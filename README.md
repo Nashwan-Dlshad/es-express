@@ -29,11 +29,9 @@ The "es-express" package aims to provide a comprehensive toolkit for Express.js 
 ## Installation
 
 To install the "es-express" package, run the following command in your terminal:
-`bash
-    npm init
-    `
 
     ```bash
+    npm init
     npm i es-express
     ```
 
