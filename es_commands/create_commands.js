@@ -6,7 +6,7 @@ const createController = (name) => {
   // check for controller name
   if (utils.checkFile("app/controllers/" + name+"Controller.js") == false) {
     // create controller file
-    const controllerContent = `const Queries = require("es-express/db/mongoose/queries");
+    const controllerContent = `const Queries = require("es-expressjs/db/mongoose/queries");
 class UserController extends Queries {
   constructor() {
 // Initialize queries

@@ -1,6 +1,6 @@
 <!-- information about this package -->
 
-# Package: [es-express]
+# Package: [es-expressjs]
 
 ## Description
 
