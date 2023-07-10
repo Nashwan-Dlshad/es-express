@@ -156,7 +156,7 @@ const UserController = require('../app/controllers/UserController')
 
 // routes
 router.route('/')
-.get(async (req, res)=> new UserController().index(req, res))
+.get(async (req, res)=> UserController.index(req, res))
 .post((req, res)=>{
     res.send('Hello World')
 })
